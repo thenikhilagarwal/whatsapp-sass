@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wa-green: #25D366;
+  --color-wa-green-dark: #128C7E;
+  --color-wa-teal: #075E54;
+  --color-wa-blue: #34B7F1;
+  --color-wa-bg-dark: #0f172a;
+  --color-wa-bg-panel: #1e293b;
+  --color-wa-text: #e2e8f0;
+  --color-wa-text-muted: #94a3b8;
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
+
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-wa-bg-dark);
+    color: var(--color-wa-text);
+    font-family: var(--font-inter);
+    margin: 0;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 1rem;
+  }
+
+  .wa-button {
+    background: var(--color-wa-green);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .wa-button:hover {
+    background: var(--color-wa-green-dark);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .wa-button:disabled {
+    background: var(--color-wa-teal);
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .wa-input {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--color-glass-border);
+    color: var(--color-wa-text);
+    border-radius: 0.5rem;
+    width: 100%;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .wa-input:focus {
+    border-color: var(--color-wa-green);
+    box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+  }
+
+  .wa-input::placeholder {
+    color: var(--color-wa-text-muted);
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
